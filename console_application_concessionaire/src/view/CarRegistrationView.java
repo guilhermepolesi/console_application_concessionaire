@@ -1,13 +1,18 @@
 package view;
 
 
+import controller.CarDaoJDBC;
+import db.DB;
 import model.Car;
 import model.Concessionaire;
 
+import java.sql.Connection;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CarRegistrationView extends RegistrationView {
+
+    private Connection conn;
 
     public CarRegistrationView() {
     }
@@ -16,6 +21,7 @@ public class CarRegistrationView extends RegistrationView {
         boolean validInput = false;
         while (!validInput) {
             try {
+                conn = DB.getConnection();
                 Scanner sc = new Scanner(System.in);
                 Car car = new Car();
                 System.out.println("Car registration");
@@ -32,6 +38,8 @@ public class CarRegistrationView extends RegistrationView {
                 car.setAmountPorts(sc.nextInt());
                 concessionaire.getList().add(car);
                 concessionaire.getCarList().add(car);
+                CarDaoJDBC carDaoJDBC = new CarDaoJDBC(conn);
+                carDaoJDBC.insert(car);
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input!");
             }
