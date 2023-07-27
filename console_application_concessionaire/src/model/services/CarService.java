@@ -14,4 +14,8 @@ public class CarService {
         }
     }
 
+    public Car findById(Long id) {
+        return carDao.findById(id);
+    }
+
 }
