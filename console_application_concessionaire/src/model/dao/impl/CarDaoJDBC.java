@@ -1,8 +1,9 @@
-package controller;
+package model.dao.impl;
 
 import db.DB;
 import db.DbException;
 import model.Car;
+import model.dao.CarDao;
 
 import java.sql.*;
 
@@ -19,6 +20,7 @@ public class CarDaoJDBC implements CarDao {
 
         PreparedStatement ps = null;
         PreparedStatement ps1 = null;
+        ResultSet rs = null;
         try {
              ps = conn.prepareStatement(
                      "INSERT INTO vehicles "
@@ -37,13 +39,11 @@ public class CarDaoJDBC implements CarDao {
 
              long id = 0;
              if (rowsAffected > 0) {
-                 ResultSet rs = ps.getGeneratedKeys();
+                 rs = ps.getGeneratedKeys();
                  if (rs.next()) {
                      id = rs.getLong(1);
                      obj.setId(id);
                  }
-
-                 DB.closeResultSet(rs);
 
                  ps1 = conn.prepareStatement(
                          "INSERT INTO cars"
@@ -57,10 +57,6 @@ public class CarDaoJDBC implements CarDao {
 
                  rowsAffected = ps1.executeUpdate();
 
-                 if (rowsAffected > 2) {
-                     System.out.println("2 linhas inseridas");
-                 }
-
              }
              else {
                  throw new DbException("Unexpected error! No rows Affected!");
@@ -70,6 +66,7 @@ public class CarDaoJDBC implements CarDao {
             throw new DbException(e.getMessage());
         }
         finally {
+            DB.closeResultSet(rs);
             DB.closeStatement(ps);
             DB.closeStatement(ps1);
 

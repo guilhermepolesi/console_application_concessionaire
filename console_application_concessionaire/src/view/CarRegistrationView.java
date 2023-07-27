@@ -1,7 +1,7 @@
 package view;
 
 
-import controller.CarDaoJDBC;
+import model.dao.impl.CarDaoJDBC;
 import db.DB;
 import model.Car;
 import model.Concessionaire;

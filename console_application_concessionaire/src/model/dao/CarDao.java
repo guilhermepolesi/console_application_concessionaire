@@ -1,4 +1,4 @@
-package controller;
+package model.dao;
 
 import model.Car;
 
