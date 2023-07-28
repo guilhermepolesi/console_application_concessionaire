@@ -23,13 +23,13 @@ public class Main {
             int choice = HomeView.printHomeView(sc);
             switch (choice) {
                 case 1:
-                    RegistrationView.registrationView(concessionaire);
+                    RegistrationView.registrationView(sc);
                     break;
                 case 2:
-                    VehicleView.showList(concessionaire);
+                    VehicleView.showList(concessionaire, sc);
                     break;
                 case 3:
-                    SellVehicleView.sellVehicleView(concessionaire);
+                    SellVehicleView.sellVehicleView(concessionaire, sc);
                     break;
                 case 4:
                     started = HomeView.turnOff();

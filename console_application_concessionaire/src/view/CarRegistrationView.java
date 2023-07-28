@@ -1,6 +1,7 @@
 package view;
 
 
+import controller.RegistrationController;
 import model.dao.impl.CarDaoJDBC;
 import db.DB;
 import model.Car;
@@ -17,12 +18,11 @@ public class CarRegistrationView extends RegistrationView {
     public CarRegistrationView() {
     }
 
-    public void carRegistrationView(Concessionaire concessionaire) {
+    public void carRegistrationView(Scanner sc) {
         boolean validInput = false;
         while (!validInput) {
             try {
                 conn = DB.getConnection();
-                Scanner sc = new Scanner(System.in);
                 Car car = new Car();
                 System.out.println("Car registration");
                 System.out.print("Car model: ");
@@ -36,8 +36,6 @@ public class CarRegistrationView extends RegistrationView {
                 car.setPrice(sc.nextDouble());
                 System.out.print("Car amount ports: ");
                 car.setAmountPorts(sc.nextInt());
-                concessionaire.getList().add(car);
-                concessionaire.getCarList().add(car);
                 CarDaoJDBC carDaoJDBC = new CarDaoJDBC(conn);
                 carDaoJDBC.insert(car);
             } catch (InputMismatchException e) {

@@ -13,9 +13,8 @@ import java.util.Scanner;
 
 public class VehicleView {
 
-    public static void showList(Concessionaire concessionaire) {
+    public static void showList(Concessionaire concessionaire, Scanner sc) {
         Connection conn = DB.getConnection();
-        Scanner sc = new Scanner(System.in);
         System.out.println("1 - Car List | 2 - Motorcycle List | 3 - All vehicles");
         int choice = sc.nextInt();
         switch (choice) {

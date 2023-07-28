@@ -13,8 +13,7 @@ public class SellVehicleView {
     public SellVehicleView() {
     }
 
-    public static void sellVehicleView(Concessionaire concessionaire) {
-        Scanner sc = new Scanner(System.in);
+    public static void sellVehicleView(Concessionaire concessionaire, Scanner sc) {
         boolean validInput = false;
         while (!validInput) {
             try {
