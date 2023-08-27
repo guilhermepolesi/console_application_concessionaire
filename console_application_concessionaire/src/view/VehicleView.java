@@ -19,9 +19,18 @@ public class VehicleView {
         int choice = sc.nextInt();
         switch (choice) {
             case 1:
-                System.out.println("Car list:");
                 CarDaoJDBC carDaoJDBC = new CarDaoJDBC(conn);
-                System.out.println(carDaoJDBC.findById(sc.nextLong()));
+                int choiceCar = 0;
+                System.out.println("1 - Car by id | 2 - All cars");
+                choiceCar = sc.nextInt();
+                if (choiceCar == 1) {
+                    System.out.println("Select car by id:");
+                    System.out.println(carDaoJDBC.findById(sc.nextLong()));
+                }
+                else {
+                    System.out.println("All cars:");
+                    System.out.println(carDaoJDBC.findAll());
+                }
                 break;
             case 2:
                 System.out.println("Motorcycle list:");

@@ -7,6 +7,16 @@
     </content>
     <orderEntry type="jdk" jdkName="17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="mysql-connector-java-8.0.30" level="project" />
+    <orderEntry type="library" exported="" name="mysql-connector-java-8.0.30" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/java-libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/java-libs" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>

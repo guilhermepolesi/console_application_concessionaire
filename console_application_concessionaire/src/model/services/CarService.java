@@ -4,6 +4,8 @@ import model.Car;
 import model.dao.CarDao;
 import model.dao.DaoFactory;
 
+import java.util.List;
+
 public class CarService {
 
     private CarDao carDao = DaoFactory.createCarDao();
@@ -16,6 +18,10 @@ public class CarService {
 
     public Car findById(Long id) {
         return carDao.findById(id);
+    }
+
+    public List<Car> findAll() {
+        return carDao.findAll();
     }
 
 }

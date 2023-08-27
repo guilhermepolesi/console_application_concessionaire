@@ -10,7 +10,6 @@ public class RegistrationController {
 
     Scanner sc = new Scanner(System.in);
 
-
     public void recordView(Integer register) {
     CarRegistrationView carRegistration = new CarRegistrationView();
     MotorcycleRegistrationView motorcycleRegistration = new MotorcycleRegistrationView();

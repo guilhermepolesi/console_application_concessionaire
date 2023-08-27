@@ -3,9 +3,11 @@ package model.dao.impl;
 import db.DB;
 import db.DbException;
 import model.Car;
+import model.Vehicle;
 import model.dao.CarDao;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CarDaoJDBC implements CarDao {
@@ -105,8 +107,38 @@ public class CarDaoJDBC implements CarDao {
 
     @Override
     public List<Car> findAll() {
-        return null;
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = conn.prepareStatement(
+                    "SELECT vehicles.*, cars.amount_ports " +
+                            "FROM concessionaire.vehicles " +
+                            "JOIN concessionaire.cars ON vehicles.id = cars.id");
+
+            rs = ps.executeQuery();
+
+            List<Car> list = new ArrayList<>();
+
+
+            while (rs.next()) {
+
+                Car obj = instantiateCar(rs);
+                list.add(obj);
+            }
+            return list;
+        }
+        catch(SQLException error) {
+            throw new DbException(error.getMessage());
+        }
+        finally {
+            DB.closeStatement(ps);
+            DB.closeResultSet(rs);
+        }
     }
+
+
+
 
     @Override
     public void update(Car obj) {
