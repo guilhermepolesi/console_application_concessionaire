@@ -12,8 +12,9 @@ public class RegistrationView {
     public RegistrationView() {
     }
 
-    public static void registrationView(Scanner sc) {
+    public static void registrationView() {
         RegistrationController registrationController = new RegistrationController();
+        Scanner sc = new Scanner(System.in);
         boolean validInput = false;
         while (!validInput) {
             try {

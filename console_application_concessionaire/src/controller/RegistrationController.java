@@ -1,6 +1,6 @@
 package controller;
 
-import model.Concessionaire;
+
 import view.CarRegistrationView;
 import view.MotorcycleRegistrationView;
 
@@ -14,9 +14,9 @@ public class RegistrationController {
         CarRegistrationView carRegistration = new CarRegistrationView();
         MotorcycleRegistrationView motorcycleRegistration = new MotorcycleRegistrationView();
         if (register == 1) {
-            carRegistration.carRegistrationView(new Scanner(System.in));
+            carRegistration.carRegistrationView();
         } else if (register == 2) {
-            motorcycleRegistration.motorcycleRegistrationView(sc);
+            motorcycleRegistration.motorcycleRegistrationView();
         }
     }
 

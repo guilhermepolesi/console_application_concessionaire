@@ -10,23 +10,24 @@ public class MotorcycleRegistrationView {
     public MotorcycleRegistrationView() {
     }
 
-    public void motorcycleRegistrationView(Scanner sc) {
+    public void motorcycleRegistrationView() {
+        Scanner sc = new Scanner(System.in);
+        Motorcycle motorcycle = new Motorcycle();
         boolean validInput = false;
         while (!validInput) {
             try {
                 System.out.println("Motorcycle registration");
                 System.out.print("Motorcycle model: ");
-                String model = sc.nextLine();
+                motorcycle.setModel(sc.nextLine());
                 System.out.print("Motorcycle year: ");
-                int year = sc.nextInt();
+                motorcycle.setYear(sc.nextInt());
                 System.out.print("Motorcycle manufacturer: ");
                 sc.nextLine();
-                String manufacturer = sc.nextLine();
-                System.out.print("Motorcycle price: ");
-                double price = sc.nextDouble();
+                motorcycle.setManufacturer(sc.nextLine());
                 System.out.print("Motorcycle Engine Capacity: ");
-                int engineCapacity = sc.nextShort();
-                Motorcycle motorcycle = new Motorcycle(model, year, manufacturer, price, engineCapacity);
+                motorcycle.setEngineCapacity(sc.nextInt());
+                System.out.print("Motorcycle price: ");
+                motorcycle.setPrice(sc.nextDouble());
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input!");
             }

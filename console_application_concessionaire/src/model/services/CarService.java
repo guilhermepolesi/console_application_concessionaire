@@ -24,4 +24,12 @@ public class CarService {
         return carDao.findAll();
     }
 
+    public void update(Car obj) {
+        carDao.update(obj);
+    }
+
+    public void remove(Long id) {
+        carDao.deleteById(id);
+    }
+
 }

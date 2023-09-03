@@ -6,6 +6,7 @@ import model.dao.impl.CarDaoJDBC;
 import db.DB;
 import model.Car;
 import model.Concessionaire;
+import model.services.CarService;
 
 import java.sql.Connection;
 import java.util.InputMismatchException;
@@ -13,16 +14,16 @@ import java.util.Scanner;
 
 public class CarRegistrationView extends RegistrationView {
 
-    private Connection conn;
+
 
     public CarRegistrationView() {
     }
 
-    public void carRegistrationView(Scanner sc) {
+    public void carRegistrationView() {
         boolean validInput = false;
         while (!validInput) {
             try {
-                conn = DB.getConnection();
+                Scanner sc = new Scanner(System.in);
                 Car car = new Car();
                 System.out.println("Car registration");
                 System.out.print("Car model: ");
@@ -36,8 +37,8 @@ public class CarRegistrationView extends RegistrationView {
                 car.setPrice(sc.nextDouble());
                 System.out.print("Car amount ports: ");
                 car.setAmountPorts(sc.nextInt());
-                CarDaoJDBC carDaoJDBC = new CarDaoJDBC(conn);
-                carDaoJDBC.insert(car);
+                CarService carService = new CarService();
+                carService.save(car);
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input!");
             }
