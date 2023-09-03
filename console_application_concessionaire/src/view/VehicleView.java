@@ -1,25 +1,19 @@
 package view;
 
-import db.DB;
-import db.DbException;
-import model.Car;
-import model.Concessionaire;
-import model.Vehicle;
-import model.dao.impl.CarDaoJDBC;
+
 import model.services.CarService;
 import model.services.MotorcycleService;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+
 import java.util.Scanner;
 
 public class VehicleView {
 
-    public static void showList(Concessionaire concessionaire) {
+    public static void showList() {
         Scanner sc = new Scanner(System.in);
         CarService carService = new CarService();
         MotorcycleService motorcycleService = new MotorcycleService();
-        System.out.println("1 - Car List | 2 - Motorcycle List | 3 - All vehicles");
+        System.out.println("1 - Car List | 2 - Motorcycle List");
         int choice = sc.nextInt();
         switch (choice) {
             case 1:
@@ -48,11 +42,6 @@ public class VehicleView {
                     System.out.println(motorcycleService.findAll());
                 }
                 break;
-            case 3:
-                System.out.println("Vehicle list:");
-                for (Vehicle vehicle : concessionaire.getList()) {
-                    System.out.println(vehicle.toString());
-                }
         }
 
     }

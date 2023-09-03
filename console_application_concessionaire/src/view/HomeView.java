@@ -1,5 +1,7 @@
 package view;
 
+import db.DB;
+
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -25,11 +27,13 @@ public class HomeView {
     }
 
     public static Boolean turnOff() {
+        DB.closeConnection();
         return false;
     }
 
 
-    public static int printHomeView(Scanner sc) {
+    public static int printHomeView() {
+        Scanner sc = new Scanner(System.in);
         int choice = 0;
         boolean validInput = false;
         while (!validInput) {

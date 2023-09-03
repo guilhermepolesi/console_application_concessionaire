@@ -1,6 +1,5 @@
 package view;
 
-import model.Concessionaire;
 import model.Motorcycle;
 import model.services.MotorcycleService;
 

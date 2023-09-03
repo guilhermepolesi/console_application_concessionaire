@@ -1,14 +1,9 @@
 package view;
 
 
-import controller.RegistrationController;
-import model.dao.impl.CarDaoJDBC;
-import db.DB;
 import model.Car;
-import model.Concessionaire;
 import model.services.CarService;
 
-import java.sql.Connection;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

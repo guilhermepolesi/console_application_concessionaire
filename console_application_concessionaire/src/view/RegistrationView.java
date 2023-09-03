@@ -1,8 +1,6 @@
 package view;
 
-import controller.PaymentController;
 import controller.RegistrationController;
-import model.Concessionaire;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
