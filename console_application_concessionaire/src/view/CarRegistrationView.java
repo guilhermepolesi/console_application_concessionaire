@@ -20,11 +20,11 @@ public class CarRegistrationView extends RegistrationView {
     }
 
     public void carRegistrationView() {
+        Scanner sc = new Scanner(System.in);
+        Car car = new Car();
         boolean validInput = false;
         while (!validInput) {
             try {
-                Scanner sc = new Scanner(System.in);
-                Car car = new Car();
                 System.out.println("Car registration");
                 System.out.print("Car model: ");
                 car.setModel(sc.nextLine());

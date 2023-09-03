@@ -2,6 +2,7 @@ package view;
 
 import model.Concessionaire;
 import model.Motorcycle;
+import model.services.MotorcycleService;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -28,6 +29,8 @@ public class MotorcycleRegistrationView {
                 motorcycle.setEngineCapacity(sc.nextInt());
                 System.out.print("Motorcycle price: ");
                 motorcycle.setPrice(sc.nextDouble());
+                MotorcycleService motorcycleService = new MotorcycleService();
+                motorcycleService.save(motorcycle);
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input!");
             }
