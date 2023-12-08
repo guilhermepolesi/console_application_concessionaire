@@ -6,5 +6,5 @@ Este projeto é uma aplicação console simples, desenvolvida em Java, que simul
 
 ## Pré-requisitos
 
-- JDK 8 ou superior
-- MySQLConnector/J
+- JDK 8 ou superior, você pode fazer o download da JDK 8 [aqui](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+- MySQLConnector/J, você pode fazer o download [aqui](https://dev.mysql.com/downloads/connector/j/5.1.html)
